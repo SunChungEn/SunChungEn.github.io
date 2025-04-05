@@ -28,6 +28,40 @@
     .paper-title { color: #00bfff; font-weight: bold; }
     .paper-links { color: #00bfff; font-size: 14px; }
     .highlight { color: #00ff00; font-weight: bold; }
+
+    @media (max-width: 768px) {
+	  header {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	  }
+	  .header-left {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		margin-bottom: 10px;
+	  }
+	  .profile-pic {
+		width: 100px;
+		height: 100px;
+		margin-bottom: 10px;
+	  }
+	  .icons {
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+		margin-top: 10px;
+	  }
+	  .icons a {
+		font-size: 14px;
+	  }
+	  nav {
+		font-size: 14px;
+	  }
+	  .container {
+		padding: 10px;
+	  }
+	}
   </style>
 </head>
 <body>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chung-En Sun | Personal Website</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #000; color: #ccc; margin: 0; padding: 0; line-height: 1.6; }
+    header { background: #003366; color: white; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; }
+    .header-left { display: flex; align-items: center; }
+    .profile-pic { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-right: 20px; }
+    .header-text { line-height: 1.4; }
+    .header-text h1 { margin: 0; font-size: 28px; }
+    .header-text p { margin: 5px 0 0; font-size: 16px; }
+    .header-text a { color: white; text-decoration: underline; font-size: 14px; }
+    .icons { display: flex; gap: 20px; align-items: center; }
+    .icons a { color: white; text-decoration: none; display: flex; align-items: center; gap: 5px; }
+    .icons a:hover { text-decoration: underline; }
+    .icons img { width: 24px; height: 24px; vertical-align: middle; }
+    nav { background: #222; padding: 10px; text-align: center; }
+    nav a { margin: 0 10px; color: #ccc; text-decoration: none; }
+    section { padding: 20px; }
+    footer { background: #003366; color: white; text-align: center; padding: 10px; }
+    .container { max-width: 900px; margin: auto; }
+    h2 { color: #66ccff; }
+    h3 { margin-top: 20px; color: #66ccff; }
+    .paper-entry { margin-bottom: 20px; }
+    .paper-title { color: #00bfff; font-weight: bold; }
+    .paper-links { color: #00bfff; font-size: 14px; }
+    .highlight { color: #00ff00; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <img src="fig/photo.jpg" alt="Chung-En Sun" class="profile-pic">
+      <div class="header-text">
+        <h1>Chung-En Sun</h1>
+        <p>Ph.D. Student, Computer Science, UC San Diego</p>
+        <a href="mailto:cesun@ucsd.edu">cesun [at] ucsd.edu</a>
+      </div>
+    </div>
+    <div class="icons">
+      <a href="https://scholar.google.com/citations?user=qOb4k_wAAAAJ" target="_blank">
+        <img src="fig/google_scholar_icon.png" alt="Google Scholar">Google Scholar
+      </a>
+      <a href="https://github.com/SunChungEn" target="_blank">
+        <img src="fig/github_icon.png" alt="GitHub">GitHub
+      </a>
+      <a href="https://drive.google.com/file/d/1EbyZb9IwGElwcd-jpnaf0SA95FRwf7ZJ/view?usp=sharing" target="_blank">
+        <img src="fig/cv_icon.png" alt="CV">CV
+      </a>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#publications">Publications</a>
+    <a href="#experience">Experience</a>
+  </nav>
+
+  <div class="container">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>I am a Ph.D. student in Computer Science at the University of California, San Diego, advised by 
+		  <a href="https://lilywenglab.github.io/" target="_blank">Prof. Tsui-Wei (Lily) Weng</a>. 
+		  My research focuses on the robustness, safety, and interpretability of Large Language Models. 
+		  Recently, I have been exploring how the hidden representations of reasoning models influence their reasoning capabilities. 
+		  Feel free to reach out if you're interested in collaboration, discussion, or have any questions!</p>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <ul>
+        <li><strong>University of California, San Diego</strong> — Ph.D. in Computer Science (2023 - Present)</li>
+        <li><strong>University of California, San Diego</strong> — M.S. in Computer Science (2021 - 2023)</li>
+        <li><strong>National Taiwan University</strong> — B.S. in Electrical Engineering (2016 - 2020)</li>
+      </ul>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+
+      <h3>Preprints</h3>
+      <div class="paper-entry">
+        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://arxiv.org/abs/2503.22048" target="_blank">ThinkEdit: Interpretable Weight Editing to Mitigate Overly Short Thinking in Reasoning Models</a>[<a class="paper-links" href="https://github.com/Trustworthy-ML-Lab/ThinkEdit" target="_blank">code</a>]<br>
+        <strong>Chung-En Sun</strong>, Ge Yan, Tsui-Wei Weng.<br>
+        arXiv, 2025.
+      </div>
+
+      <h3>Accepted Papers</h3>
+      <div class="paper-entry">
+        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://arxiv.org/abs/2412.07992" target="_blank">Concept Bottleneck Large Language Models</a>[<a class="paper-links" href="https://github.com/Trustworthy-ML-Lab/CB-LLMs" target="_blank">code</a>]<br>
+        <strong>Chung-En Sun</strong>, Tuomas Oikarinen, Berk Ustun, Tsui-Wei Weng.<br>
+        ICLR 2025.
+      </div>
+
+      <div class="paper-entry">
+        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://arxiv.org/abs/2410.18469" target="_blank">Iterative Self-Tuning LLMs for Enhanced Jailbreaking Capabilities</a><br>
+        <strong>Chung-En Sun</strong>, Xiaodong Liu, Weiwei Yang, Tsui-Wei Weng, Hao Cheng, Aidan San, Michel Galley, Jianfeng Gao.<br>
+        NAACL 2025 Main Oral.
+      </div>
+
+      <div class="paper-entry">
+        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://arxiv.org/abs/2503.19377" target="_blank">Interpretable Generative Models through Post-hoc Concept Bottlenecks</a><br>
+        Akshay Kulkarni, Ge Yan, <strong>Chung-En Sun</strong>, Tuomas Oikarinen, Tsui-Wei Weng.<br>
+        CVPR 2025.
+      </div>
+
+      <div class="paper-entry">
+        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://arxiv.org/abs/2503.21730" target="_blank">Effective Skill Unlearning through Intervention and Abstention</a><br>
+        Yongce Li, <strong>Chung-En Sun</strong>, Tsui-Wei Weng.<br>
+        NAACL 2025 Main.
+      </div>
+
+      <div class="paper-entry">
+        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://export.arxiv.org/abs/2406.18062" target="_blank">Breaking the Barrier: Enhanced Utility and Robustness in Smoothed DRL Agents</a>[<a class="paper-links" href="https://github.com/Trustworthy-ML-Lab/Robust_HighUtil_Smoothed_DRL" target="_blank">code</a>]<br>
+        <strong>Chung-En Sun</strong>, Sicun Gao, Tsui-Wei Weng.<br>
+        ICML 2024.
+      </div>
+
+      <div class="paper-entry">
+        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://arxiv.org/abs/2407.04307" target="_blank">Crafting Large Language Models for Enhanced Interpretability</a><br>
+        <strong>Chung-En Sun</strong>, Tuomas Oikarinen, Tsui-Wei Weng.<br>
+        ICML Workshop 2024.
+      </div>
+
+      <div class="paper-entry">
+        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://openreview.net/pdf?id=NIeCTX8prp" target="_blank">Fooling GPT with Adversarial In-Context Examples for Text Classification</a><br>
+        Sudhanshu Ranjan, <strong>Chung-En Sun</strong>, Linbo Liu, Tsui-Wei Weng.<br>
+        NeurIPS Workshop 2023.
+      </div>
+
+      <div class="paper-entry">
+        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://arxiv.org/abs/2010.13468" target="_blank">Melody Harmonization Using Orderless NADE</a><br>
+        <strong>Chung-En Sun</strong>, Yi-Wei Chen, Hung-Shin Lee, Yen-Hsing Chen, Hsin-Min Wang.<br>
+        ICASSP 2021.
+      </div>
+
+      <div class="paper-entry">
+        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://arxiv.org/abs/2005.03457" target="_blank">NTIRE 2020 Challenge on NonHomogeneous Dehazing</a><br>
+        Ju-Chin Chao, Tsung-Shan Yang, Peng-Wen Chen, Po-Min Hsu, Tzu-Yi Liao, <strong>Chung-En Sun</strong>, Pei-Yuan Wu.<br>
+        CVPR Workshop 2020.
+      </div>
+
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <h3>Work Experience</h3>
+      <ul>
+        <li><strong>Microsoft Research</strong> — Research Intern (Jul. 2024 - Sep. 2024)</li>
+        <li><strong>Academia Sinica, Taiwan</strong> — Research Intern (Jul. 2019 - Aug. 2019)</li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 Chung-En Sun</p>
+  </footer>
+</body>
+</html>

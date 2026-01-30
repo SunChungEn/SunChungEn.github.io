@@ -6,85 +6,276 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chung-En Sun | Personal Website</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #000; color: #ccc; margin: 0; padding: 0; line-height: 1.6; }
-    header { background: #003366; color: white; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; }
-    .header-left { display: flex; align-items: center; }
-    .profile-pic { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-right: 20px; }
-    .header-text { line-height: 1.4; }
-    .header-text h1 { margin: 0; font-size: 28px; }
-    .header-text p { margin: 5px 0 0; font-size: 16px; }
-    .header-text a { color: white; text-decoration: underline; font-size: 14px; }
-    .icons { display: flex; gap: 20px; align-items: center; }
-    .icons a { color: white; text-decoration: none; display: flex; align-items: center; gap: 5px; }
-    .icons a:hover { text-decoration: underline; }
-    .icons img { width: 24px; height: 24px; vertical-align: middle; }
-    nav { background: #222; padding: 10px; text-align: center; }
-    nav a { margin: 0 10px; color: #ccc; text-decoration: none; }
-    section { padding: 20px; }
-    footer { background: #003366; color: white; text-align: center; padding: 10px; }
-    .container { max-width: 900px; margin: auto; }
-    h2 { color: #66ccff; }
-    h3 { margin-top: 20px; color: #66ccff; }
-    .paper-entry { margin-bottom: 20px; }
-    .paper-title { color: #00bfff; font-weight: bold; }
-    .paper-links { color: #00bfff; font-size: 14px; }
-    .highlight { color: #00ff00; font-weight: bold; }
+    /* Global Styles & Dark Mode Base */
+    :root {
+      --bg-color: #121212;
+      --card-bg: #1e1e1e;
+      --text-color: #e0e0e0;
+      --heading-color: #ffffff;
+      --accent-color: #4db8ff; /* High contrast cyan for links */
+      --accent-hover: #80d4ff;
+      --nav-bg: #0d253f;
+      --border-color: #333;
+    }
 
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+    }
+
+    /* Links */
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #001f3f 0%, #003366 100%);
+      color: white;
+      padding: 40px 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .header-content {
+      max-width: 900px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 30px;
+      border: 3px solid var(--accent-color);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .header-text h1 {
+      margin: 0 0 10px 0;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--heading-color);
+    }
+
+    .header-text p {
+      margin: 0 0 5px 0;
+      font-size: 18px;
+      color: #ccc;
+    }
+
+    .header-text a.email-link {
+      color: var(--accent-color);
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    /* Social Icons */
+    .icons {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .icons a {
+      color: #e0e0e0;
+      background: rgba(255,255,255,0.1);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.3s;
+    }
+
+    .icons a:hover {
+      background: rgba(255,255,255,0.2);
+      text-decoration: none;
+      color: white;
+    }
+
+    .icons img {
+      width: 20px;
+      height: 20px;
+      filter: invert(1); /* Ensure icons are white in dark mode */
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--nav-bg);
+      padding: 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: #ccc;
+      font-weight: 600;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    nav a:hover {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      margin-bottom: 50px;
+      background: var(--bg-color); /* Seamless look */
+    }
+
+    h2 {
+      color: var(--heading-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 10px;
+      margin-bottom: 25px;
+      font-size: 24px;
+    }
+
+    h3 {
+      margin-top: 30px;
+      margin-bottom: 15px;
+      color: #b3e5fc; /* Lighter blue for subheadings */
+      font-size: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    /* Paper Entries */
+    .paper-entry {
+      margin-bottom: 25px;
+      padding-left: 15px;
+      border-left: 3px solid #333;
+      transition: border-color 0.3s;
+    }
+    
+    .paper-entry:hover {
+      border-left-color: var(--accent-color);
+    }
+
+    .paper-title {
+      color: var(--accent-color);
+      font-weight: 700;
+      font-size: 17px;
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+
+    .paper-links {
+      font-size: 14px;
+      /* removed margin-left to fix the "[ code]" spacing issue */
+    }
+    
+    .paper-links a {
+       color: #8ecae6;
+    }
+
+    strong {
+      color: white;
+    }
+
+    /* Footer */
+    footer {
+      background: #0d253f;
+      color: #888;
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      margin-top: 50px;
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
-	  header {
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-	  }
-	  .header-left {
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-		margin-bottom: 10px;
-	  }
-	  .profile-pic {
-		width: 100px;
-		height: 100px;
-		margin-bottom: 10px;
-	  }
-	  .icons {
-		flex-direction: column;
-		align-items: center;
-		gap: 10px;
-		margin-top: 10px;
-	  }
-	  .icons a {
-		font-size: 14px;
-	  }
-	  nav {
-		font-size: 14px;
-	  }
-	  .container {
-		padding: 10px;
-	  }
-	}
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .header-left {
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+      .profile-pic {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 120px;
+        height: 120px;
+      }
+      .icons {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      nav a {
+        display: inline-block;
+        margin: 5px 8px;
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="header-left">
-      <img src="fig/photo.jpg" alt="Chung-En Sun" class="profile-pic">
-      <div class="header-text">
-        <h1>Chung-En Sun</h1>
-        <p>Ph.D. Student, Computer Science, UC San Diego</p>
-        <a href="mailto:cesun@ucsd.edu">cesun [at] ucsd.edu</a>
+    <div class="header-content">
+      <div class="header-left">
+        <img src="fig/photo.jpg" alt="Chung-En Sun" class="profile-pic">
+        <div class="header-text">
+          <h1>Chung-En Sun</h1>
+          <p>Ph.D. Student, Computer Science, UC San Diego</p>
+          <a href="mailto:cesun@ucsd.edu" class="email-link">cesun [at] ucsd.edu</a>
+        </div>
       </div>
-    </div>
-    <div class="icons">
-      <a href="https://scholar.google.com/citations?user=16i_rlwAAAAJ" target="_blank">
-        <img src="fig/google_scholar_icon.png" alt="Google Scholar">Google Scholar
-      </a>
-      <a href="https://github.com/SunChungEn" target="_blank">
-        <img src="fig/github_icon.png" alt="GitHub">GitHub
-      </a>
-      <a href="https://drive.google.com/file/d/1EbyZb9IwGElwcd-jpnaf0SA95FRwf7ZJ/view?usp=sharing" target="_blank">
-        <img src="fig/cv_icon.png" alt="CV">CV
-      </a>
+      <div class="icons">
+        <a href="https://scholar.google.com/citations?user=16i_rlwAAAAJ" target="_blank">
+          <img src="fig/google_scholar_icon.png" alt="Google Scholar"> Scholar
+        </a>
+        <a href="https://github.com/SunChungEn" target="_blank">
+          <img src="fig/github_icon.png" alt="GitHub"> GitHub
+        </a>
+        <a href="https://drive.google.com/file/d/1EbyZb9IwGElwcd-jpnaf0SA95FRwf7ZJ/view?usp=sharing" target="_blank">
+          <img src="fig/cv_icon.png" alt="CV"> CV
+        </a>
+      </div>
     </div>
   </header>
 
@@ -100,10 +291,10 @@
     <section id="about">
       <h2>About Me</h2>
       <p>I am a Ph.D. student in Computer Science at the University of California, San Diego, advised by 
-		  <a href="https://lilywenglab.github.io/" target="_blank">Prof. Tsui-Wei (Lily) Weng</a>. 
-		  My research focuses on the robustness, safety, and interpretability of Large Language Models. 
-		  Recently, I have been exploring how the hidden representations of reasoning models influence their reasoning capabilities. 
-		  Feel free to reach out if you're interested in collaboration, discussion, or have any questions!</p>
+        <a href="https://lilywenglab.github.io/" target="_blank">Prof. Tsui-Wei (Lily) Weng</a>. 
+        My research focuses on the robustness, safety, and interpretability of Large Language Models. 
+        Recently, I have been exploring how the hidden representations of reasoning models influence their reasoning capabilities. 
+        Feel free to reach out if you're interested in collaboration, discussion, or have any questions!</p>
     </section>
 
     <section id="education">
@@ -118,100 +309,108 @@
     <section id="news">
       <h2>News</h2>
       <ul>
-		<li>2025/10/12 I have a new paper on Training Trustworthy Large Reasoning Models: <strong><a href="https://arxiv.org/abs/2510.09062" target="_blank">ReFIne: A Framework for Trustworthy Large Reasoning Models with Reliability, Faithfulness, and Interpretability</a></strong></li>
-		<li>2025/8/20 My paper <strong><a href="https://arxiv.org/abs/2503.22048" target="_blank">ThinkEdit: Interpretable Weight Editing to Mitigate Overly Short Thinking in Reasoning Models</a></strong> has been accepted to EMNLP 2025 Main Conference!</li>
+        <li>2026/1/30 I have a new paper on steerability and editing: <strong><a href="assets/Steer2Edit.pdf" target="_blank">Steer2Edit: From Activation Steering to Component-Level Editing</a></strong> [arXiv and code coming soon!]</li>
+        <li>2025/10/12 I have a new paper on Training Trustworthy Large Reasoning Models: <strong><a href="https://arxiv.org/abs/2510.09062" target="_blank">ReFIne: A Framework for Trustworthy Large Reasoning Models with Reliability, Faithfulness, and Interpretability</a></strong></li>
+        <li>2025/8/20 My paper <strong><a href="https://arxiv.org/abs/2503.22048" target="_blank">ThinkEdit: Interpretable Weight Editing to Mitigate Overly Short Thinking in Reasoning Models</a></strong> has been accepted to EMNLP 2025 Main Conference!</li>
         <li>2025/6/7 I will serve as one of the program chairs for <strong><a href="https://t2fm-ws.github.io/T2FM-ICCV25/" target="_blank">ICCV2025 T2FM Workshop: Building Foundation Models You Can Trust</a></strong>. Please check out our website for more information!</li>
-      	<li>2025/4/21 My paper <strong><a href="https://www.microsoft.com/en-us/research/publication/iterative-self-tuning-llms-for-enhanced-jailbreaking-capabilities/" target="_blank">Iterative Self-Tuning LLMs for Enhanced Jailbreaking Capabilities</a></strong> has been selected as the research focus on Microsoft Research Blog.</li>
-	  </ul>
+        <li>2025/4/21 My paper <strong><a href="https://www.microsoft.com/en-us/research/publication/iterative-self-tuning-llms-for-enhanced-jailbreaking-capabilities/" target="_blank">Iterative Self-Tuning LLMs for Enhanced Jailbreaking Capabilities</a></strong> has been selected as the research focus on Microsoft Research Blog.</li>
+      </ul>
     </section>
 
     <section id="publications">
       <h2>Publications</h2>
 
       <h3>Preprints</h3>
+      
       <div class="paper-entry">
-        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://arxiv.org/abs/2510.09062" target="_blank">ReFIne: A Framework for Trustworthy Large Reasoning Models with Reliability, Faithfulness, and Interpretability</a>[<a class="paper-links" href="https://github.com/Trustworthy-ML-Lab/Training_Trustworthy_LRM_with_Refine" target="_blank">code</a>]<br>
+        <a class="paper-title" href="assets/Steer2Edit.pdf" target="_blank">Steer2Edit: From Activation Steering to Component-Level Editing</a> [arXiv and code coming soon]<br>
+        <strong>Chung-En Sun</strong>, Ge Yan, Zimo Wang, Tsui-Wei Weng.<br>
+        Preprint 2026.
+      </div>
+
+      <div class="paper-entry">
+        <a class="paper-title" href="https://arxiv.org/abs/2510.09062" target="_blank">ReFIne: A Framework for Trustworthy Large Reasoning Models with Reliability, Faithfulness, and Interpretability</a> [<a class="paper-links" href="https://github.com/Trustworthy-ML-Lab/Training_Trustworthy_LRM_with_Refine" target="_blank">code</a>]<br>
         <strong>Chung-En Sun</strong>, Ge Yan, Akshay Kulkarni, Tsui-Wei Weng.<br>
         arXiv 2025.
       </div>
 
-	  <div class="paper-entry">
-        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://openreview.net/forum?id=ungnJ4O0AD" target="_blank">ReflCtrl: Controlling LLM Reflection via Representation Engineering</a><br>
+      <div class="paper-entry">
+        <a class="paper-title" href="https://openreview.net/forum?id=ungnJ4O0AD" target="_blank">ReflCtrl: Controlling LLM Reflection via Representation Engineering</a><br>
         Ge Yan, <strong>Chung-En Sun</strong>, Tsui-Wei Weng.<br>
         NeurIPS MI Workshop 2025.
       </div>
 
-	  <div class="paper-entry">
-        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://openreview.net/forum?id=SNwwxvM0cx" target="_blank">How to Make LLMs Safer? Detecting and Editing Key Heads in LLMs</a><br>
+      <div class="paper-entry">
+        <a class="paper-title" href="https://openreview.net/forum?id=SNwwxvM0cx" target="_blank">How to Make LLMs Safer? Detecting and Editing Key Heads in LLMs</a><br>
         Kuan-Lin Chu, <strong>Chung-En Sun</strong>, Tsui-Wei Weng.<br>
         NeurIPS Lock-LLM Workshop 2025.
       </div>
 
-	  <div class="paper-entry">
-        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://openreview.net/forum?id=e9Do3KXkYA" target="_blank">FoCus: Improving Faithfulness in Chain-of-Thoughts by Training on Structured Reasoning Data</a><br>
+      <div class="paper-entry">
+        <a class="paper-title" href="https://openreview.net/forum?id=e9Do3KXkYA" target="_blank">FoCus: Improving Faithfulness in Chain-of-Thoughts by Training on Structured Reasoning Data</a><br>
         Guan-Yi Lin, <strong>Chung-En Sun</strong>, Tsui-Wei Weng.<br>
         NeurIPS MATH-AI Workshop 2025.
       </div>
-		
+        
       <h3>Accepted Papers</h3>
 
-	  <div class="paper-entry">
-        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://arxiv.org/abs/2503.22048" target="_blank">ThinkEdit: Interpretable Weight Editing to Mitigate Overly Short Thinking in Reasoning Models</a>[<a class="paper-links" href="https://github.com/Trustworthy-ML-Lab/ThinkEdit" target="_blank">code</a>]<br>
+      <div class="paper-entry">
+        <a class="paper-title" href="https://arxiv.org/abs/2503.22048" target="_blank">ThinkEdit: Interpretable Weight Editing to Mitigate Overly Short Thinking in Reasoning Models</a> [<a class="paper-links" href="https://github.com/Trustworthy-ML-Lab/ThinkEdit" target="_blank">code</a>]<br>
         <strong>Chung-En Sun</strong>, Ge Yan, Tsui-Wei Weng.<br>
         EMNLP 2025 main.
       </div>
-		
+        
       <div class="paper-entry">
-        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://arxiv.org/abs/2412.07992" target="_blank">Concept Bottleneck Large Language Models</a>[<a class="paper-links" href="https://github.com/Trustworthy-ML-Lab/CB-LLMs" target="_blank">code</a>]<br>
+        <a class="paper-title" href="https://arxiv.org/abs/2412.07992" target="_blank">Concept Bottleneck Large Language Models</a> [<a class="paper-links" href="https://github.com/Trustworthy-ML-Lab/CB-LLMs" target="_blank">code</a>]<br>
         <strong>Chung-En Sun</strong>, Tuomas Oikarinen, Berk Ustun, Tsui-Wei Weng.<br>
         ICLR 2025.
       </div>
 
       <div class="paper-entry">
-        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://arxiv.org/abs/2410.18469" target="_blank">Iterative Self-Tuning LLMs for Enhanced Jailbreaking Capabilities</a>[<a class="paper-links" href="https://github.com/SunChungEn/ADV-LLM" target="_blank">code</a>][<a class="paper-links" href="https://www.microsoft.com/en-us/research/publication/iterative-self-tuning-llms-for-enhanced-jailbreaking-capabilities/" target="_blank">featured @ Microsoft Research Blog</a>]<br>
+        <a class="paper-title" href="https://arxiv.org/abs/2410.18469" target="_blank">Iterative Self-Tuning LLMs for Enhanced Jailbreaking Capabilities</a> [<a class="paper-links" href="https://github.com/SunChungEn/ADV-LLM" target="_blank">code</a>] [<a class="paper-links" href="https://www.microsoft.com/en-us/research/publication/iterative-self-tuning-llms-for-enhanced-jailbreaking-capabilities/" target="_blank">featured @ Microsoft Research Blog</a>]<br>
         <strong>Chung-En Sun</strong>, Xiaodong Liu, Weiwei Yang, Tsui-Wei Weng, Hao Cheng, Aidan San, Michel Galley, Jianfeng Gao.<br>
         NAACL 2025 Main Oral.
       </div>
 
       <div class="paper-entry">
-        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://arxiv.org/abs/2503.19377" target="_blank">Interpretable Generative Models through Post-hoc Concept Bottlenecks</a><br>
+        <a class="paper-title" href="https://arxiv.org/abs/2503.19377" target="_blank">Interpretable Generative Models through Post-hoc Concept Bottlenecks</a><br>
         Akshay Kulkarni, Ge Yan, <strong>Chung-En Sun</strong>, Tuomas Oikarinen, Tsui-Wei Weng.<br>
         CVPR 2025.
       </div>
 
       <div class="paper-entry">
-        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://arxiv.org/abs/2503.21730" target="_blank">Effective Skill Unlearning through Intervention and Abstention</a><br>
+        <a class="paper-title" href="https://arxiv.org/abs/2503.21730" target="_blank">Effective Skill Unlearning through Intervention and Abstention</a><br>
         Yongce Li, <strong>Chung-En Sun</strong>, Tsui-Wei Weng.<br>
         NAACL 2025 Main.
       </div>
 
       <div class="paper-entry">
-        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://export.arxiv.org/abs/2406.18062" target="_blank">Breaking the Barrier: Enhanced Utility and Robustness in Smoothed DRL Agents</a>[<a class="paper-links" href="https://github.com/Trustworthy-ML-Lab/Robust_HighUtil_Smoothed_DRL" target="_blank">code</a>]<br>
+        <a class="paper-title" href="https://export.arxiv.org/abs/2406.18062" target="_blank">Breaking the Barrier: Enhanced Utility and Robustness in Smoothed DRL Agents</a> [<a class="paper-links" href="https://github.com/Trustworthy-ML-Lab/Robust_HighUtil_Smoothed_DRL" target="_blank">code</a>]<br>
         <strong>Chung-En Sun</strong>, Sicun Gao, Tsui-Wei Weng.<br>
         ICML 2024.
       </div>
 
       <div class="paper-entry">
-        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://arxiv.org/abs/2407.04307" target="_blank">Crafting Large Language Models for Enhanced Interpretability</a><br>
+        <a class="paper-title" href="https://arxiv.org/abs/2407.04307" target="_blank">Crafting Large Language Models for Enhanced Interpretability</a><br>
         <strong>Chung-En Sun</strong>, Tuomas Oikarinen, Tsui-Wei Weng.<br>
         ICML MI Workshop 2024.
       </div>
 
       <div class="paper-entry">
-        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://openreview.net/pdf?id=NIeCTX8prp" target="_blank">Fooling GPT with Adversarial In-Context Examples for Text Classification</a><br>
+        <a class="paper-title" href="https://openreview.net/pdf?id=NIeCTX8prp" target="_blank">Fooling GPT with Adversarial In-Context Examples for Text Classification</a><br>
         Sudhanshu Ranjan, <strong>Chung-En Sun</strong>, Linbo Liu, Tsui-Wei Weng.<br>
         NeurIPS R0-FoMo Workshop 2023.
       </div>
 
       <div class="paper-entry">
-        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://arxiv.org/abs/2010.13468" target="_blank">Melody Harmonization Using Orderless NADE</a><br>
+        <a class="paper-title" href="https://arxiv.org/abs/2010.13468" target="_blank">Melody Harmonization Using Orderless NADE, Chord Balancing, and Blocked Gibbs Sampling</a><br>
         <strong>Chung-En Sun</strong>, Yi-Wei Chen, Hung-Shin Lee, Yen-Hsing Chen, Hsin-Min Wang.<br>
         ICASSP 2021.
       </div>
 
       <div class="paper-entry">
-        <span class="highlight">&gt;&gt;</span><a class="paper-title" href="https://arxiv.org/abs/2005.03457" target="_blank">NTIRE 2020 Challenge on NonHomogeneous Dehazing</a><br>
-        Ju-Chin Chao, Tsung-Shan Yang, Peng-Wen Chen, Po-Min Hsu, Tzu-Yi Liao, <strong>Chung-En Sun</strong>, Pei-Yuan Wu.<br>
+        <a class="paper-title" href="https://arxiv.org/abs/2005.03457" target="_blank">NTIRE 2020 Challenge on NonHomogeneous Dehazing</a><br>
+        Codruta O. Ancuti, Cosmin Ancuti, ..., <strong>Chung-En Sun</strong>, Murari Mandal.<br>
         CVPR Workshop 2020.
       </div>
 
@@ -224,6 +423,13 @@
         <li><strong>Microsoft Research</strong> — Research Intern (Jul. 2024 - Sep. 2024)</li>
         <li><strong>Academia Sinica, Taiwan</strong> — Research Intern (Jul. 2019 - Aug. 2019)</li>
       </ul>
+
+      <h3>Academic Service</h3>
+      <ul>
+        <li><strong>Program Chair</strong> — ICCV 2025 Workshop T2FM</li>
+        <li><strong>Reviewer</strong> — ICLR {2025,2026}, NeurIPS 2025<br>
+        CVPR 2025 Workshop MIV, ICCV 2025 Workshop T2FM, NeurIPS 2025 Workshop {MI, MATH-AI}</li>
+      </ul>
     </section>
   </div>
 
@@ -232,14 +438,3 @@
   </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
